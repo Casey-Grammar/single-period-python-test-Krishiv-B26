@@ -73,9 +73,18 @@ jobs:
       with:
         test-name: Task 5a
         setup-command: ''
-        command: python test_Task_05b.py
+        command: python test_Task_05a.py
         timeout: 10
         max-score: 6
+    - name: Task 5b
+      id: task-5b
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 5b
+        setup-command: ''
+        command: python test_Task_05b.py
+        timeout: 10
+        max-score: 4
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
@@ -86,5 +95,6 @@ jobs:
         TASK-3_RESULTS: "${{steps.task-3.outputs.result}}"
         TASK-4_RESULTS: "${{steps.task-4.outputs.result}}"
         TASK-5A_RESULTS: "${{steps.task-5a.outputs.result}}"
+        TASK-5B_RESULTS: "${{steps.task-5b.outputs.result}}"
       with:
-        runners: task-1a,task-1b,task-2a,task-2b,task-3,task-4,task-5a
+        runners: task-1a,task-1b,task-2a,task-2b,task-3,task-4,task-5a,task-5b
