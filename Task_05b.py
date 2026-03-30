@@ -15,7 +15,7 @@ def unique_items(items):
             seen.add(item)
             result.append(item)
     return result
-
+    pass
 
 def main():
     user_input = input("Enter items separated by commas: ")
