@@ -6,8 +6,8 @@
 # calculate_total(4.5, 3) -> 13.5
 
 def calculate_total(price, quantity):
-    # Write your code here
-    pass
+    total = price * quantity
+    return total
 
 
 def main():
