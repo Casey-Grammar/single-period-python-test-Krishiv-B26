@@ -9,7 +9,12 @@
 # count_vowels("Education") -> 5
 
 def count_vowels(text):
-    # Write your code here
+    vowels = "aeiouAEIOU"
+    count = 0
+    for char in text:
+        if char in vowels:
+            count += 1
+    return count
     pass
 
 
