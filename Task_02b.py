@@ -7,7 +7,8 @@
 # extract_even_numbers([1, 2, 3, 4, 5, 6]) -> [2, 4, 6]
 
 def extract_even_numbers(numbers):
-    # Write your code here
+    extract_even_numbers = [num for num in numbers if num % 2 == 0]
+    return extract_even_numbers 
     pass
 
 
