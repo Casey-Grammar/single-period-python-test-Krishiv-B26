@@ -12,7 +12,8 @@
 # returns ["Wonder", "Hatchet", "Matilda"]
 
 def replace_book(books, old_book, new_book):
-    # Write your code here
+    replace_book = [new_book if book == old_book else book for book in books]
+    return replace_book
     pass
 
 
