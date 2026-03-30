@@ -12,9 +12,11 @@
 # returns ["Wonder", "Hatchet", "Matilda"]
 
 def replace_book(books, old_book, new_book):
-    replace_book = [new_book if book == old_book else book for book in books]
-    return replace_book
-    pass
+    for i, book in enumerate(books):
+        if book == old_book:
+            books[i] = new_book
+            break
+    return books
 
 
 def main():

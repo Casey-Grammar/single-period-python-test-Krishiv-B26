@@ -24,8 +24,12 @@ def expand_subject_codes(codes):
         "HIS": "History",
         "ART": "Art"
     }
-    return [code_mapping.get(code) for code in codes]
-    pass
+    full_subjects = []
+    for code in codes:
+        normalized = code.strip().upper()
+        if normalized in code_mapping:
+            full_subjects.append(code_mapping[normalized])
+    return full_subjects
 
 
 def main():
