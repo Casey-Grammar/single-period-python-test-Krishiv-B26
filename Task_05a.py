@@ -8,7 +8,8 @@
 # You may assume the list will contain at least one number.
 
 def find_largest(numbers):
-    # Write your code here
+    find_largest = max(numbers)
+    return find_largest
     pass
 
 
