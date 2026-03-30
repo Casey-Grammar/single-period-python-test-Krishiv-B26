@@ -17,7 +17,14 @@
 # returns ["Mathematics", "Science", "English"]
 
 def expand_subject_codes(codes):
-    # Write your code here
+    code_mapping = {
+        "ENG": "English",
+        "MAT": "Mathematics",
+        "SCI": "Science",
+        "HIS": "History",
+        "ART": "Art"
+    }
+    return [code_mapping.get(code) for code in codes]
     pass
 
 
