@@ -1,0 +1,90 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Task 1a
+      id: task-1a
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 1a
+        setup-command: ''
+        command: python test_Task_01a.py
+        timeout: 10
+        max-score: 3
+    - name: Task 1b
+      id: task-1b
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 1b
+        setup-command: ''
+        command: python test_Task_01b.py
+        timeout: 10
+        max-score: 3
+    - name: Task 2a
+      id: task-2a
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 2a
+        setup-command: ''
+        command: python test_Task_02a.py
+        timeout: 10
+        max-score: 4
+    - name: Task 2b
+      id: task-2b
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 2b
+        setup-command: ''
+        command: python test_Task_02b.py
+        timeout: 10
+        max-score: 5
+    - name: Task 3
+      id: task-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 3
+        setup-command: ''
+        command: python test_Task_03.py
+        timeout: 10
+        max-score: 7
+    - name: Task 4
+      id: task-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 4
+        setup-command: ''
+        command: python test_Task_04.py
+        timeout: 10
+        max-score: 8
+    - name: Task 5a
+      id: task-5a
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Task 5a
+        setup-command: ''
+        command: python test_Task_05b.py
+        timeout: 10
+        max-score: 6
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TASK-1A_RESULTS: "${{steps.task-1a.outputs.result}}"
+        TASK-1B_RESULTS: "${{steps.task-1b.outputs.result}}"
+        TASK-2A_RESULTS: "${{steps.task-2a.outputs.result}}"
+        TASK-2B_RESULTS: "${{steps.task-2b.outputs.result}}"
+        TASK-3_RESULTS: "${{steps.task-3.outputs.result}}"
+        TASK-4_RESULTS: "${{steps.task-4.outputs.result}}"
+        TASK-5A_RESULTS: "${{steps.task-5a.outputs.result}}"
+      with:
+        runners: task-1a,task-1b,task-2a,task-2b,task-3,task-4,task-5a
